@@ -89,38 +89,36 @@ In this study, heuristic approach is used so as to observe the effects of the pi
 1. **P-controller** is tried with following PID parameters: 0.10-0.0-0.0  
 The vehicle oscillated a lot after short time with this controller and then went off the road. 
 
-See the full video:[P Controller](./vid/p.mov).  
+full video:[P Controller](./vid/p.mov).  
 
 2. **PD-controller** PID parameters: 0.10-0.0-2.0  
 This prevents the oscillation. But car was stills looks like shaking.
 
-See the full video: [PD Controller](./vid/pd.mov).  
+Full video: [PD Controller](./vid/pd.mov).  
 
 3. **PID-controller** PID parameters: 0.10-0.005-2.0  
  
 However, higher integral values cause that steering angles began to change very rapidly, causing the vehicle to lose control. A lower integral value is set for the pid controller.  
 
-See the full video: [PID Controller](./videos/pid.mov).  
-
 
 **Simulation**  
-No tire may leave the drivable portion of the track surface. The car may not pop up onto ledges or roll over any surfaces that would otherwise be considered unsafe (if humans were in the vehicle).  
+In simulation enviroment, after several testing, the following parameters are determined for best driving. 
 
-The simulation for the ideal pid controller (parameters = 0.15, 0.001, 2.5) is shown below:  
+- P = 0.15
+- I = 0.005
+- D = 2.5 
 
-![](img/sim_full.gif)  
-(6 times faster!)
-
-See the full video: [./videos/pid_ideal.mov](./videos/pid_ideal.mov)  
+Full video: [PID Controller](./vid/pid.mov).  
 
 ---
 ### Future Improvements  
 In this study, 2 improvements can be done as described below.  
 
-1. The vehicle speed was increased to 60 mph, it caused crash after for while. T
+1. The vehicle speed was increased to 60 mph, it caused crash after for while. 
 
-Even the car didnot left the race the osicilation increase quite a lot. This problem can be overcome by adding a second controller to "throttle" as well. Because in real-life situtation driver is going to be slow in turns
-See the full video: [High Speed](./vid/high.mov) 
+Even the car did not left the race the osicilation increase quite a lot. This problem can be overcome by adding a second controller to "throttle" as well. Because in real-life, driver is going to be slow in turns
+
+Full video: [High Speed](./vid/high.mov) 
 
 2. Twiddle can be used for find optimum values. Heuristic approach has both slow processing and limitation in testing
 
