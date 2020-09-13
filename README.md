@@ -89,19 +89,17 @@ In this study, heuristic approach is used so as to observe the effects of the pi
 1. **P-controller** is tried with following PID parameters: 0.10-0.0-0.0  
 The vehicle oscillated a lot after short time with this controller and then went off the road. 
 
-See the full video:[[P Controller]](./vid/p.mov).  
+See the full video:[P Controller](./vid/p.mov).  
 
 2. **PD-controller** PID parameters: 0.10-0.0-2.0  
-This prevents the oscillation. But car was stills looks like shaking.    
+This prevents the oscillation. But car was stills looks like shaking.
 
 See the full video: [PD Controller](./vid/pd.mov).  
 
 3. **PID-controller** PID parameters: 0.10-0.005-2.0  
  
-However, higher integral values cause that steering angles began to change very rapidly, causing the vehicle to lose control.
+However, higher integral values cause that steering angles began to change very rapidly, causing the vehicle to lose control. A lower integral value is set for the pid controller.  
 
-
-A lower integral value is set for the pid controller.  
 See the full video: [PID Controller](./videos/pid.mov).  
 
 
