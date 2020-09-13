@@ -86,28 +86,23 @@ Then, steering value is calculated based on PID controller.
 **Testing**  
 In this study, heuristic approach is used so as to observe the effects of the pid parameters.  
 
-1. **P-controller** is tried with following p-i-d parameters: 0.15-0.0-0.0  
-The ego vehicle oscillated quite a lot with this controller and then went off the road.  
+1. **P-controller** is tried with following PID parameters: 0.10-0.0-0.0  
+The vehicle oscillated a lot after short time with this controller and then went off the road. 
 
-![](img/p_only_off.png)  
+See the full video:[[P Controller]](./vid/p.mov).  
 
-See the full video: [./vid/p_only.mov](./vid/p_only.mov).  
+2. **PD-controller** PID parameters: 0.10-0.0-2.0  
+This prevents the oscillation. But car was stills looks like shaking.    
 
-2. **PD-controller** is tried with following p-i-d parameters: 0.15-0.0-2.5  
-This prevents the oscillation.     
+See the full video: [PD Controller](./vid/pd.mov).  
 
-See the full video: [./videos/pd_ideal.mov](./videos/pd_ideal.mov).  
+3. **PID-controller** PID parameters: 0.10-0.005-2.0  
+ 
+However, higher integral values cause that steering angles began to change very rapidly, causing the vehicle to lose control.
 
-3. **PID-controller** is tried with some p-i-d parameters.
-Since there were no systematic bias in the ego vehicle, there were no difference between PD and PID controllers for small integral values.  
-However, **higher integral values** cause that steering angles began to change very rapidly, causing the vehicle to lose control!!!  
-![](img/high_integral.gif)  
-(4 times faster!)
 
-See the full video: [./videos/pid_high_integral.mov](./videos/pid_high_integral.mov).  
-
-Thus, a lower integral value is set for the pid controller.  
-See the full video: [./videos/pid_ideal.mov](./videos/pid_ideal.mov).  
+A lower integral value is set for the pid controller.  
+See the full video: [PID Controller](./videos/pid.mov).  
 
 
 **Simulation**  
@@ -124,23 +119,12 @@ See the full video: [./videos/pid_ideal.mov](./videos/pid_ideal.mov)
 ### Future Improvements  
 In this study, 2 improvements can be done as described below.  
 
-1. The vehicle speed was increased to 50 mph to see the controller's steering performance at a higher speed.  
-<pre><code>
-std::endl;
-          json msgJson;
-          msgJson["steering_angle"] = steer_value;
-          msgJson["throttle"] = 0.5;
-</code></pre> 
-As a result, even if the vehicle did not leave the road completely, oscillation increased too much and some wheels slipped out of the outer lane.  
-![](img/off1.png) ![](img/off2.png)   
-This can be improved by adding a 2nd PID controller for "throttle" as well.  
+1. The vehicle speed was increased to 60 mph, it caused crash after for while. T
 
-2. Instead of a heuristic approach, twiddle can be used to reach the optimum pid parameters. However, in this study, heuristic approach is choosen so as to demonstrate the effects of the different parameters.  
+Even the car didnot left the race the osicilation increase quite a lot. This problem can be overcome by adding a second controller to "throttle" as well. Because in real-life situtation driver is going to be slow in turns
+See the full video: [High Speed](./vid/high.mov) 
 
-Enthusiasts can get better results by trying these two suggestions.  
+2. Twiddle can be used for find optimum values. Heuristic approach has both slow processing and limitation in testing
 
-### References  
-Udacity's Q&A Session: https://www.youtube.com/watch?v=YamBuzDjrs8
-https://en.wikipedia.org/wiki/PID_controller
 
 
