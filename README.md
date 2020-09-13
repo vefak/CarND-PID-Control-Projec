@@ -94,7 +94,7 @@ The ego vehicle oscillated quite a lot with this controller and then went off th
 See the full video: [./vid/p_only.mov](./vid/p_only.mov).  
 
 2. **PD-controller** is tried with following p-i-d parameters: 0.15-0.0-2.5  
-This prevents the oscillation.    
+This prevents the oscillation.     
 
 See the full video: [./videos/pd_ideal.mov](./videos/pd_ideal.mov).  
 
